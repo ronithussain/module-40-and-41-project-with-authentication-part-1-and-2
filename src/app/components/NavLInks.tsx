@@ -14,12 +14,12 @@ const NavLInks = async () => {
 
   const filterNavs = navs.filter((f) => f.scrapable === true);
 
-  console.log(filterNavs);
+//   console.log(filterNavs);
   return (
-    <div className="flex justify-center gap-3 mt-5 font-semibold text-md sm:text-xl">
+    <div className="flex justify-center gap-3 mt-5 font-semibold text-md sm:text-xl ">
       <Link href="/">হোম</Link>
       {filterNavs.map((n, i) => (
-        <Link key={i} href={n.slug}>
+        <Link key={i} href={`/category/${n.slug}`}>
           {n.title}
         </Link>
       ))}

@@ -4,7 +4,7 @@ import NavLInks from './NavLInks';
 
 const Header = () => {
     const date = new Date().toLocaleDateString("bn-BD", {dateStyle:'full'});
-    console.log(date);
+    // console.log(date);
     return (
         <header className='relative container mx-auto py-4'>
             <div className='flex flex-col justify-center items-center gap-2 sm:flex-row'>
