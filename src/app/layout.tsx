@@ -3,13 +3,12 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Marquee from "./components/Marquee";
+import { Toaster } from "sonner";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   variable: "--font-geist-sans",
   subsets: ["latin", "bengali"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +22,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className}  h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header/>
+        <Header />
         <Marquee />
         <main className="container mx-auto px-4">
           {children}
+          <Toaster
+            position="top-right"
+            richColors
+            closeButton
+            duration={3000}
+          />
         </main>
-        </body>
+      </body>
     </html>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 interface MostNews {
     id:string,
@@ -13,7 +14,9 @@ const MostRead = async() => {
             <h1 className="text-xl font-bold mb-2">সর্বাধিক পঠিত</h1>
             {
                 mostNews.map((mNews,i) => <div className="flex gap-x-3" key={mNews.id}>
-                    <span className="font-bold text-xl text-red-600">{i + 1}</span><h2 className="font-semibold">{mNews.title}</h2>
+                    <Link href={`/news-details/${mNews.id}`}>
+                    <span className="font-bold text-xl text-red-600">{i + 1}</span><h2 className="font-semibold hover:underline ">{mNews.title}</h2>
+                    </Link>
                 </div>)
             }
         </div>
