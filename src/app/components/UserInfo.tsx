@@ -22,17 +22,19 @@ const UserInfo = () => {
     <div className="absolute top-5 right-2 flex items-center gap-2">
       {user ? (
         <div className="flex flex-col items-center gap-2">
-          <div className="avatar">
-            <div className="w-10 rounded-full">
-              <Image
-                width={10}
-                height={10}
-                alt={user?.image as string}
-                src={user?.image as string}
-              ></Image>
-              {/* <img alt={user?.image} src={user?.image as string} /> */}
+          <Link href={'/profile'}>
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <Image
+                  width={10}
+                  height={10}
+                  alt={user?.image as string}
+                  src={user?.image as string}
+                ></Image>
+                {/* <img alt={user?.image} src={user?.image as string} /> */}
+              </div>
             </div>
-          </div>
+          </Link>
           <h3 className="text-sm">{user?.name}</h3>
           <button
             onClick={handleSIgnOut}

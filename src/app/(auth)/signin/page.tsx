@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
 import GoogleSocial from "../GoogleSocial";
+import GithubSocial from "../GithubSocial";
 
 const SignInPage = () => {
   const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
@@ -51,7 +52,10 @@ const SignInPage = () => {
             সাইন ইন করুন
           </button>
           <div className="divider">OR</div>
-          <GoogleSocial/>
+          <div className="flex justify-between items-center">
+            <GoogleSocial/>
+          <GithubSocial/>
+          </div>
         </fieldset>
       </form>
     </div>

@@ -1,4 +1,5 @@
 import NewsCard from "@/app/components/NewsCard";
+import { notFound } from "next/navigation";
 
 interface INews {
   id: string;
@@ -21,6 +22,10 @@ const CategoryPage = async ({ params }: IPromiseProps) => {
   );
   const data = await res.json();
   const categoryNews: INews[] = data.data;
+
+  if(!categoryNews){
+    notFound()
+  }
 //   console.log(categoryNews);
 
   return (

@@ -1,25 +1,21 @@
-"use client";
-
 import { authClient } from "@/lib/auth-client";
-import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 import { toast } from "sonner";
 
-const GoogleSocial = () => {
-  const handleGoogleSignIn = async () => {
+const GithubSocial = () => {
+  const handleGithubSignIn = async () => {
     const { data, error } = await authClient.signIn.social({
-      provider: "google",
-      callbackURL: "/",
+      provider: "github",
     });
-    // console.log(data);
     if (error) {
-      toast.error(error.message || "Google দিয়ে লগইন করা যায়নি।");
+      toast.error(error.message || "Github দিয়ে লগইন করা যায়নি।");
     }
   };
   return (
     <div>
       <button
         type="button"
-        onClick={handleGoogleSignIn}
+        onClick={handleGithubSignIn}
         className="
         w-full
         py-3
@@ -38,12 +34,12 @@ const GoogleSocial = () => {
       "
       >
         {/* Google Logo */}
-      <FcGoogle size={24} />
 
-        <span>Continue with Google</span>
+        <FaGithub size={24} />
+        <span>Continue with Github</span>
       </button>
     </div>
   );
 };
 
-export default GoogleSocial;
+export default GithubSocial;

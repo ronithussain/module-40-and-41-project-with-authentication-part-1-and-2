@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 interface IBodyItem {
   type: "text" | "image" | "subheading";
@@ -49,12 +50,15 @@ const NewsDetailsPage = async ({params,}: {params: Promise<{ newsId: string }>;}
     `https://news-api-v2.vercel.app/api/article/${newsId}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch news");
-  }
+  // if (!res.ok) {
+  //   throw new Error("Failed to fetch news");
+  // }
 
   const result = await res.json();
   const newsDetails: INewsDetails = result.data;
+  if(!newsDetails){
+    notFound()
+  }
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-8">
